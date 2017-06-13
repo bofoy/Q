@@ -101,6 +101,11 @@ class LoginViewController: UIViewController {
     }
     
     private func initButtons() {
+        self.loginButton.translatesAutoresizingMaskIntoConstraints = false
+        self.signupButton.translatesAutoresizingMaskIntoConstraints = false
+        self.forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        self.learnMoreButton.translatesAutoresizingMaskIntoConstraints = false
+        
         self.loginButton.setTitle("Login", for: .normal)
         self.loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
         self.loginButton.setTitleColor(.white, for: .normal)
@@ -131,50 +136,52 @@ class LoginViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        self.emailField.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: UIScreen.main.bounds.height*0.4).isActive = true
         self.emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.emailField.bottomAnchor.constraint(equalTo: self.passwordField.topAnchor, constant: -15).isActive = true
+        self.emailField.bottomAnchor.constraint(equalTo: self.passwordField.topAnchor, constant: -10).isActive = true
         self.emailField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         self.emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
         
-        self.passwordField.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 15)
+        self.passwordField.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 10).isActive = true
         self.passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.passwordField.bottomAnchor.constraint(equalTo: self.loginButton.topAnchor, constant: -40).isActive = true
+        self.passwordField.bottomAnchor.constraint(equalTo: self.loginButton.topAnchor, constant: -60).isActive = true
         self.passwordField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         self.passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
         
-        self.loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height*0.65).isActive = true
+        self.loginButton.topAnchor.constraint(equalTo: self.passwordField.bottomAnchor, constant: 60).isActive = true
         self.loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height*0.3).isActive = true
+        self.loginButton.bottomAnchor.constraint(equalTo: self.signupButton.topAnchor, constant: -20).isActive = true
         self.loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         self.loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
         
-        self.signupButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 15)
+        self.signupButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20).isActive = true
         self.signupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.signupButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height*0.2).isActive = true
+        self.signupButton.bottomAnchor.constraint(equalTo: self.forgotPasswordButton.topAnchor, constant: -60).isActive = true
         self.signupButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         self.signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
         
+        self.forgotPasswordButton.topAnchor.constraint(equalTo: self.signupButton.bottomAnchor, constant: 60).isActive = true
         self.forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.forgotPasswordButton.bottomAnchor.constraint(equalTo: self.learnMoreButton.topAnchor, constant: -20).isActive = true
         self.forgotPasswordButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
         self.forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
         
+        self.learnMoreButton.topAnchor.constraint(equalTo: self.forgotPasswordButton.bottomAnchor, constant: 20).isActive = true
         self.learnMoreButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.learnMoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height*0.04).isActive = true
         self.learnMoreButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
         self.learnMoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        self.scrollView.isScrollEnabled = true
         var info = sender.userInfo!
+        print(info)
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         
         self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize!.height/2)
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        self.scrollView.isScrollEnabled = false
+        self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
     
     func login(sender: UIButton) {
