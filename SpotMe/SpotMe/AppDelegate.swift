@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = Constants.overcastBlueColor
+        UINavigationBar.appearance().barTintColor = Constants.backgroundColor
+        UINavigationBar.appearance().isTranslucent = false
+        //UIView.appearance().backgroundColor = Constants.backgroundColor
         return true
     }
 

@@ -27,7 +27,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.scrollView.backgroundColor = Constants.backgroundColor
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(gesture:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        self.view.backgroundColor = Constants.backgroundColor
         self.emailField.delegate = self
         self.passwordField.delegate = self
         
@@ -41,6 +44,16 @@ class LoginViewController: UIViewController {
         initButtons()
         initTextFields()
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,29 +86,33 @@ class LoginViewController: UIViewController {
         
         self.emailField.placeholder = "Email"
         self.emailField.title = "Email"
-        self.emailField.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
-        self.emailField.lineColor = .white
+        self.emailField.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
+        self.emailField.lineColor = .lightGray
         self.emailField.textColor = .white
-        self.emailField.placeholderColor = .white
-        self.emailField.selectedTitleColor = .white
-        self.emailField.selectedLineColor = .white
-        self.emailField.iconFont = UIFont.fontAwesome(ofSize: 15)
+        self.emailField.placeholderColor = .lightGray
+        self.emailField.selectedTitleColor = Constants.overcastBlueColor
+        self.emailField.selectedLineColor = Constants.overcastBlueColor
+        self.emailField.iconFont = UIFont.fontAwesome(ofSize: 16)
         self.emailField.iconText = String.fontAwesomeIcon(name: .envelope)
+        self.emailField.selectedIconColor = Constants.overcastBlueColor
         self.emailField.autocorrectionType = .no
+        self.emailField.iconMarginBottom = 2.0
         self.emailField.returnKeyType = .next
         self.emailField.autocapitalizationType = .none
         
         self.passwordField.placeholder = "Password"
         self.passwordField.title = "Password"
-        self.passwordField.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
-        self.passwordField.lineColor = .white
+        self.passwordField.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
+        self.passwordField.lineColor = .lightGray
         self.passwordField.textColor = .white
-        self.passwordField.placeholderColor = .white
-        self.passwordField.selectedTitleColor = .white
-        self.passwordField.selectedLineColor = .white
+        self.passwordField.placeholderColor = .lightGray
+        self.passwordField.selectedTitleColor = Constants.overcastBlueColor
+        self.passwordField.selectedLineColor = Constants.overcastBlueColor
         self.passwordField.isSecureTextEntry = true
-        self.passwordField.iconFont = UIFont.fontAwesome(ofSize: 15)
+        self.passwordField.iconMarginBottom = 2.0
+        self.passwordField.iconFont = UIFont.fontAwesome(ofSize: 16)
         self.passwordField.iconText = String.fontAwesomeIcon(name: .lock)
+        self.passwordField.selectedIconColor = Constants.overcastBlueColor
         
         self.registerForKeyboardNotifications()
     }
@@ -107,14 +124,14 @@ class LoginViewController: UIViewController {
         self.learnMoreButton.translatesAutoresizingMaskIntoConstraints = false
         
         self.loginButton.setTitle("Login", for: .normal)
-        self.loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
+        self.loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
         self.loginButton.setTitleColor(.white, for: .normal)
         self.loginButton.backgroundColor = Constants.overcastBlueColor
         self.loginButton.addTarget(self, action: #selector(login(sender:)), for: .touchUpInside)
         self.loginButton.translatesAutoresizingMaskIntoConstraints = false;
         
         self.signupButton.setTitle("Sign Up", for: .normal)
-        self.signupButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightThin)
+        self.signupButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
         self.signupButton.setTitleColor(.white, for: .normal)
         self.signupButton.backgroundColor = Constants.overcastBlueColor
         self.signupButton.addTarget(self, action: #selector(signup(sender:)), for: .touchUpInside)
@@ -136,45 +153,47 @@ class LoginViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        self.emailField.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: UIScreen.main.bounds.height*0.4).isActive = true
+        let navbarHeight = self.navigationController?.navigationBar.frame.height
+        
+        self.emailField.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor,
+                                             constant: 20+UIScreen.main.bounds.height*0.4-navbarHeight!).isActive = true
         self.emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.emailField.bottomAnchor.constraint(equalTo: self.passwordField.topAnchor, constant: -10).isActive = true
         self.emailField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
         
         self.passwordField.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 10).isActive = true
         self.passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.passwordField.bottomAnchor.constraint(equalTo: self.loginButton.topAnchor, constant: -60).isActive = true
         self.passwordField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
         
         self.loginButton.topAnchor.constraint(equalTo: self.passwordField.bottomAnchor, constant: 60).isActive = true
         self.loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.loginButton.bottomAnchor.constraint(equalTo: self.signupButton.topAnchor, constant: -20).isActive = true
-        self.loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.loginButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
         
         self.signupButton.topAnchor.constraint(equalTo: self.loginButton.bottomAnchor, constant: 20).isActive = true
         self.signupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.signupButton.bottomAnchor.constraint(equalTo: self.forgotPasswordButton.topAnchor, constant: -60).isActive = true
-        self.signupButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        self.signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.signupButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        self.signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
         
         self.forgotPasswordButton.topAnchor.constraint(equalTo: self.signupButton.bottomAnchor, constant: 60).isActive = true
         self.forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.forgotPasswordButton.bottomAnchor.constraint(equalTo: self.learnMoreButton.topAnchor, constant: -20).isActive = true
         self.forgotPasswordButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        self.forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.forgotPasswordButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
         
         self.learnMoreButton.topAnchor.constraint(equalTo: self.forgotPasswordButton.bottomAnchor, constant: 20).isActive = true
         self.learnMoreButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.learnMoreButton.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        self.learnMoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width*0.2).isActive = true
+        self.learnMoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.textFieldFullMargin).isActive = true
     }
     
     func keyboardWillShow(sender: NSNotification) {
         var info = sender.userInfo!
-        print(info)
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         
         self.scrollView.contentOffset = CGPoint(x: 0, y: keyboardSize!.height/2)
@@ -200,9 +219,11 @@ class LoginViewController: UIViewController {
         print("learn more pressed")
     }
     
+    func tap(gesture: UIGestureRecognizer) {
+        self.scrollView.endEditing(true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 
 }

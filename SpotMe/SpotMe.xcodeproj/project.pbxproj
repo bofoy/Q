@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B72E6785CD8CDA1813B986E /* Pods_SpotMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D5D3025E70DAD503F843E2 /* Pods_SpotMe.framework */; };
+		680AB8621EF0B6C100D01A45 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680AB8611EF0B6C100D01A45 /* ArrayExtension.swift */; };
+		680AB8641EF0B83200D01A45 /* SignupViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680AB8631EF0B83200D01A45 /* SignupViewControllerExtension.swift */; };
 		682BB4F21EEB678E00A51D66 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682BB4F11EEB678E00A51D66 /* LoginViewController.swift */; };
 		682FB4B71EEB9DC300595B70 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB4B61EEB9DC300595B70 /* SkyFloatingLabelTextField.framework */; };
 		682FB4BB1EEB9DCE00595B70 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB4B81EEB9DCE00595B70 /* Alamofire.framework */; };
@@ -19,9 +21,10 @@
 		682FB4C61EEF4FA600595B70 /* LoginViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682FB4C51EEF4FA600595B70 /* LoginViewControllerExtension.swift */; };
 		6833F7091ED6545E00022C7A /* SpotMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833F7081ED6545E00022C7A /* SpotMeTests.swift */; };
 		6833F7141ED6545E00022C7A /* SpotMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833F7131ED6545E00022C7A /* SpotMeUITests.swift */; };
+		68AC87881EF6ED150026F226 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC87871EF6ED150026F226 /* TestViewController.swift */; };
 		68D0301C1ED65E390019403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68D030181ED65E390019403F /* Assets.xcassets */; };
 		68D0301D1ED65E390019403F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D0301A1ED65E390019403F /* LaunchScreen.storyboard */; };
-		68D0301E1ED65E390019403F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D0301B1ED65E390019403F /* Main.storyboard */; };
+		68D0301E1ED65E390019403F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68D0301B1ED65E390019403F /* Login.storyboard */; };
 		68D0302F1ED65F120019403F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D0302E1ED65F120019403F /* AppDelegate.swift */; };
 		68D030311ED65F650019403F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68D030301ED65F650019403F /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -45,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		10D5D3025E70DAD503F843E2 /* Pods_SpotMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		680AB8611EF0B6C100D01A45 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		680AB8631EF0B83200D01A45 /* SignupViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewControllerExtension.swift; sourceTree = "<group>"; };
 		682BB4F11EEB678E00A51D66 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		682FB4B61EEB9DC300595B70 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SpotMe-cmkyhoytjyxwzthfbmmnwfvhccvv/Build/Products/Debug-iphonesimulator/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"; sourceTree = "<group>"; };
 		682FB4B81EEB9DCE00595B70 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SpotMe-cmkyhoytjyxwzthfbmmnwfvhccvv/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
@@ -61,9 +66,10 @@
 		6833F70F1ED6545E00022C7A /* SpotMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6833F7131ED6545E00022C7A /* SpotMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeUITests.swift; sourceTree = "<group>"; };
 		6833F7151ED6545E00022C7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68AC87871EF6ED150026F226 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		68D030181ED65E390019403F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68D0301A1ED65E390019403F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		68D0301B1ED65E390019403F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		68D0301B1ED65E390019403F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		68D0302E1ED65F120019403F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SpotMe/AppDelegate.swift; sourceTree = "<group>"; };
 		68D030301ED65F650019403F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D5ADAE28BADF439A0C9E88 /* Pods-SpotMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotMe.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SpotMe/Pods-SpotMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				682FB4C51EEF4FA600595B70 /* LoginViewControllerExtension.swift */,
+				680AB8611EF0B6C100D01A45 /* ArrayExtension.swift */,
+				680AB8631EF0B83200D01A45 /* SignupViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			path = SpotMe/Extensions;
@@ -143,12 +151,12 @@
 		6833F6E71ED6545E00022C7A = {
 			isa = PBXGroup;
 			children = (
-				682FB4C41EEF4F0C00595B70 /* Extensions */,
-				682BB4F31EEB82CF00A51D66 /* Rest */,
 				68D0302E1ED65F120019403F /* AppDelegate.swift */,
 				68D0301F1ED65E590019403F /* Controllers */,
+				682FB4C41EEF4F0C00595B70 /* Extensions */,
 				68D030221ED65E590019403F /* Models */,
 				68D030281ED65E590019403F /* Views */,
+				682BB4F31EEB82CF00A51D66 /* Rest */,
 				68D030171ED65E390019403F /* Resources */,
 				6833F7071ED6545E00022C7A /* SpotMeTests */,
 				6833F7121ED6545E00022C7A /* SpotMeUITests */,
@@ -201,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				68D0301A1ED65E390019403F /* LaunchScreen.storyboard */,
-				68D0301B1ED65E390019403F /* Main.storyboard */,
+				68D0301B1ED65E390019403F /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 			children = (
 				682BB4F11EEB678E00A51D66 /* LoginViewController.swift */,
 				682FB4BE1EEDDD0900595B70 /* SignupViewController.swift */,
+				68AC87871EF6ED150026F226 /* TestViewController.swift */,
 			);
 			name = Controllers;
 			path = SpotMe/Controllers;
@@ -348,7 +357,7 @@
 			files = (
 				68D030311ED65F650019403F /* Info.plist in Resources */,
 				68D0301C1ED65E390019403F /* Assets.xcassets in Resources */,
-				68D0301E1ED65E390019403F /* Main.storyboard in Resources */,
+				68D0301E1ED65E390019403F /* Login.storyboard in Resources */,
 				68D0301D1ED65E390019403F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,8 +433,11 @@
 			files = (
 				682FB4BF1EEDDD0900595B70 /* SignupViewController.swift in Sources */,
 				682BB4F21EEB678E00A51D66 /* LoginViewController.swift in Sources */,
+				68AC87881EF6ED150026F226 /* TestViewController.swift in Sources */,
 				682FB4C61EEF4FA600595B70 /* LoginViewControllerExtension.swift in Sources */,
+				680AB8621EF0B6C100D01A45 /* ArrayExtension.swift in Sources */,
 				68D0302F1ED65F120019403F /* AppDelegate.swift in Sources */,
+				680AB8641EF0B83200D01A45 /* SignupViewControllerExtension.swift in Sources */,
 				682FB4C11EEDF7C800595B70 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

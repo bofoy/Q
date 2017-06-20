@@ -12,4 +12,5 @@ import UIKit
 struct Constants {
     static let overcastBlueColor = UIColor(red: 0/255, green: 187/255, blue: 204/255, alpha: 1.0)
     static let backgroundColor = UIColor(red: 50/255, green: 59/255, blue: 95/255, alpha: 1.0)
+    static let textFieldFullMargin = UIScreen.main.bounds.width*0.14
 }
